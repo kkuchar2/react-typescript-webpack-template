@@ -20,7 +20,7 @@ const HomePage = () => {
 
     const dispatch = useAppDispatch();
 
-    const data = selector.responseData.data;
+    const data = Object.keys(selector.responseData).length === 0 ? null : selector.responseData;
 
     useEffect(() => {
         dispatch(tryGetData());
@@ -31,7 +31,7 @@ const HomePage = () => {
         <Text theme={titleTheme} text={'Hello there'}/>
         <StyledCatImage src={'https://cataas.com/cat/gif/says/Hello?filter=sepia&color=orange&size=40&type=or'}/>
         <StyledResponseBox>
-            { !data ? <Text theme={responseTextTheme} text={'Loading Bitcoin info...'} /> : <ReactJson theme='monokai' src={data} /> }
+            { !data ? <Text theme={responseTextTheme} text={'Loading openlibrary.org...'} /> : <ReactJson enableClipboard={false} theme='monokai' src={data} /> }
         </StyledResponseBox>
     </StyledHomePage>;
 };
