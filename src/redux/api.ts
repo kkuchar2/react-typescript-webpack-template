@@ -4,7 +4,7 @@ import axios from "axios";
 import Cookies from "universal-cookie/es6";
 
 //////////////////////////////////////////////////////////////////////////////////////
-const API_URL = 'https://openlibrary.org/works/OL15626917W.json';
+const API_URL = 'https://openlibrary.org/search/authors.json?q=j%20k%20rowling';
 //////////////////////////////////////////////////////////////////////////////////////
 
 const isProduction = process.argv[process.argv.indexOf('--mode') + 1] === 'production';
