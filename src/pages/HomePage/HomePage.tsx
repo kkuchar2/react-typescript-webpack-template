@@ -14,6 +14,18 @@ import {
     titleTheme
 } from "./style";
 
+export const withRequestComplete = (selector: any, path: string, onComplete: Function) => {
+    useEffect(() => {
+        const isCorrectContext = selector.path === path;
+        const isRequestComplete = !selector.requestSent && selector.responseReceived;
+        const hasNoErrors = selector.errors.length === 0;
+
+        if (isCorrectContext && isRequestComplete && hasNoErrors) {
+            onComplete();
+        }
+    }, [selector]);
+};
+
 const HomePage = () => {
 
     const selector = useSelector(selectorData);
